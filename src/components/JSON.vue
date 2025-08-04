@@ -45,9 +45,11 @@
       <p>{{ austen?.name }}'s works:</p>
       <!-- Activity 9: Render a list of Austen's works. Hint: Use the v-for directive to iterate through the array of authors that you have filtered out. -->
       <!-- TODO: CODE TO RENDER LIST OF AUSTEN'S WORKS HERE -->
-       <li v-for="author in austen" :key = "id">
-        {{ id }}
-       </li>
+      <ul>
+        <li v-for="work in austen?.famousWorks" :key="work.title">
+          {{ work.title }} ({{ work.year }})
+        </li>
+      </ul>
     </section>
 
     <section class="lab-section">
@@ -59,32 +61,42 @@
         Company:
         <!-- Activity 9a: Get the company name from the bookstores object. -->
         <!-- TODO: CODE TO GET COMPANY NAME HERE -->
-        <li v-for="bookstore in bookstores" :key = "name">
-        {{ id }}
-       </li>
+        <strong>{{ bookstores.name }}</strong>
       </p>
 
       <p>
         Total Stores:
         <!-- Activity 9b: Get the total number of stores from the bookstores object. -->
         <!-- TODO: CODE TO GET TOTAL STORES HERE -->
+         <strong>{{ bookstores.totalStores }}</strong>
       </p>
 
       <h3>Iterating Object Properties</h3>
       <p>Store Types:</p>
       <!-- Activity 10: Iterate through the storeTypes array and display the store type and the number of stores that use that type. -->
       <!-- TODO: CODE TO RENDER LIST OF STORE TYPES HERE -->
+       <ul>
+        <li v-for="(count, type) in bookstores.storeTypes" :key="type">
+          {{ type }}: {{ count }}
+        </li>
+      </ul>
 
       <h3>Nested Objects</h3>
       <p>Opening Hours:</p>
       <!-- Activity 11: Iterate through the openingHours object and display the day of the week and the opening and closing times. -->
       <!-- TODO: CODE TO RENDER LIST OF OPENING HOURS HERE -->
+       <ul>
+        <li v-for="(time, day) in bookstores.openingHours" :key="day">
+          {{ day }} - Open: {{ time.open }}, Close: {{ time.close }}
+        </li>
+      </ul>
+
 
       <h3>Working with Arrays in Objects</h3>
       <!-- Activity 12: Get the top sellers from the bookstores object. -->
       <!-- TODO: CODE TO GET TOP SELLERS HERE -->
-      <p>We operate in:</p>
-      <p>Our #1 seller:</p>
+      <p>We operate in: {{ bookstores.countries.join(", ") }}</p>
+      <p>Our #1 seller: {{ bookstores.topSellers[0] }}</p>
     </section>
 
     <section class="lab-section">
@@ -102,7 +114,6 @@
     <section class="lab-section">
       <h2>Attribute, Class and Style Binding with <code>v-bind</code></h2>
       <p>Highlighting Specific Authors:</p>
-
     </section>
   </div>
 </template>
@@ -132,13 +143,13 @@ const allFamousWorks = computed(() => {
 // Activity 4: Find author by name
 const orwell = computed(() => {
   // TODO: CODE TO FIND AUTHOR BY NAME HERE
-  return authors.filter((author) => author.name == "George Orwell")
+  return authors.find((author) => author.name == "George Orwell")
 })
 
 // Activity 5: Find author by ID
 const austen = computed(() => {
   // TODO: CODE TO FIND AUTHOR BY ID HERE
-  return authors.filter((author) => author.id == 1)
+  return authors.find((author) => author.id == 1)
 })
 </script>
 
