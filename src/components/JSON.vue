@@ -22,12 +22,20 @@
       <!-- Activity 7: Render a list containing authors born after 1850. Hint: Make use of the v-for directive to iterate through the array of authors that you have filtered out. -->
       <p>Authors born after 1850:</p>
       <!-- TODO: CODE TO RENDER LIST OF AUTHORS HERE -->
+      <ul>  
+        <li v-for="author in modernAuthors" :key = "author.id">  
+          {{ author.name }} ({{ author.birthYear }})
+        </li>
+      </ul>
 
       <h3>Mapping Arrays</h3>
       <p>Famous works:</p>
       <ul>
         <!-- Activity 8: Render a list of all famous works. Hint: Use the v-for directive to iterate through the array of authors that you have filtered out. -->
         <!-- TODO: CODE TO RENDER LIST OF FAMOUS WORKS HERE -->
+         <li v-for="work in allFamousWorks" :key = "work">
+          {{ work }}
+         </li>
       </ul>
 
       <h3>Finding in Arrays</h3>
@@ -37,6 +45,9 @@
       <p>{{ austen?.name }}'s works:</p>
       <!-- Activity 9: Render a list of Austen's works. Hint: Use the v-for directive to iterate through the array of authors that you have filtered out. -->
       <!-- TODO: CODE TO RENDER LIST OF AUSTEN'S WORKS HERE -->
+       <li v-for="author in austen" :key = "id">
+        {{ id }}
+       </li>
     </section>
 
     <section class="lab-section">
@@ -48,6 +59,9 @@
         Company:
         <!-- Activity 9a: Get the company name from the bookstores object. -->
         <!-- TODO: CODE TO GET COMPANY NAME HERE -->
+        <li v-for="bookstore in bookstores" :key = "name">
+        {{ id }}
+       </li>
       </p>
 
       <p>
@@ -79,8 +93,10 @@
       <!-- Activity 13: Toggle the message visibility when the button is clicked. -->
       <!-- TODO: CODE TO TOGGLE MESSAGE VISIBILITY HERE. Hint: Use the v-if directive. -->
       <button @click="showMessage = !showMessage">Toggle Message</button>
-      <p class="message success">✨ You're a Vue superstar! ✨</p>
-      <p>Click the button to see a message.</p>
+      <p v-if="showMessage" class="message success">
+        ✨ You're a Vue superstar! ✨
+      </p>
+      <p v-else class="message">Click the button to see a message.</p>
     </section>
 
     <section class="lab-section">
