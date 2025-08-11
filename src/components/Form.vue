@@ -1,5 +1,5 @@
 <template>
-        <div class="form">
+    <div class="form">
     <h1>User Information Form / Credentials</h1>
         <form>
             <label for="username">Username:</label><br>
@@ -21,6 +21,24 @@
                 <option value="other">Other</option>
             </select>
         </form>
+
+        
+    </div>
+
+    
+</template>
+
+<template>
+    <div class="container mt-5">
+        <div class="row">
+            <h1 class="col-md-8 offset-md-2">
+            <form  @submit.prevent="submitForm">
+                <div class="col-md-6">
+                    
+                </div>
+            </form>
+            </h1>
+        </div>
     </div>
 </template>
 
