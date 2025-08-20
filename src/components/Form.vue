@@ -12,7 +12,7 @@
           <input
             type="text"
             class="form-control"
-            id="username"
+            id="username" required
             v-model="formData.username"
           />
         </div>
@@ -21,7 +21,7 @@
           <input
             type="password"
             class="form-control"
-            id="password"
+            id="password" minlength="4" maxlength="10"
             v-model="formData.password"
           />
         </div>
@@ -33,7 +33,7 @@
             <input
               type="checkbox"
               class="form-check-input"
-              id="isAustralian"
+              id="isAustralian" required
               v-model="formData.isAustralian"
             />
             <label class="form-check-label" for="isAustralian"
@@ -45,7 +45,7 @@
         <div class="col-12 col-sm-6 col-md-6">
           <label for="gender" class="form-label">Gender</label>
           <select
-            id="gender"
+            id="gender" required
             class="form-select"
             v-model="formData.gender"
           >
@@ -61,7 +61,7 @@
         <div class="col-12">
           <label for="reason" class="form-label">Reason for joining</label>
           <textarea
-            id="reason"
+            id="reason" required
             class="form-control"
             rows="3"
             v-model="formData.reason"
