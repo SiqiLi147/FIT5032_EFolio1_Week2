@@ -12,7 +12,7 @@
           <input
             type="text"
             class="form-control"
-            id="username"
+            id="username" required
             v-model="formData.username"
           />
         </div>
